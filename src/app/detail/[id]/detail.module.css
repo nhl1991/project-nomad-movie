@@ -1,7 +1,7 @@
 @reference "tailwindcss";
 
 .subInfoContainer {
-    @apply w-full p-1 text-center flex border-b-2 border-gray-200;
+    @apply w-full p-1 text-center flex divide-x-2 divide-slate-700;
 }
 
 .infoTitle {

@@ -1,9 +1,11 @@
 import { Detail } from "@/app/lib/types";
-import { getMovieById } from "@/app/lib/utils"
+import { getMovieById, getProviderById } from "@/app/lib/utils"
 import Link from "next/link";
 import styles from "./detail.module.css"
 import Videos from "./components/VideoComponent";
 import Poster from "./components/ImageComponent";
+import Provider from "./components/ProviderComponent";
+import Credits from "./components/Credits";
 
 
 export async function generateMetadata(
@@ -18,9 +20,11 @@ export async function generateMetadata(
     }
 }
 
-export default async function Page({ params } : { params: Promise<{ id: string }> }) {
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     const data: Detail = await getMovieById(id);
+    const providers = await getProviderById(id);
+    const regions = Object.keys(providers);
     const million = 1000000;
 
 
@@ -29,8 +33,8 @@ export default async function Page({ params } : { params: Promise<{ id: string }
         <div className="w-full h-full bg-black text-white">
             <h1 className="w-full text-center text-4xl p-4">{data.title}</h1>
             <h6 className="w-full text-center text-2xl p-2">&quot;{data.tagline}&quot;</h6>
-            <div className="w-full md:flex">
-                <div className="w-full md:w-1/4 p-4">
+            <div className="w-full h-max md:flex">
+                <div className="w-full md:w-1/4 p-4 h-max">
                     <Poster src={data.poster_path} title={data.title} />
                     <div className="p-2">
                         <div className={styles.subInfoContainer}>
@@ -59,9 +63,17 @@ export default async function Page({ params } : { params: Promise<{ id: string }
                         </div>
 
                     </div>
+                    <h1 className="text-2xl font-bold py-2 px-1 h-max">Cast</h1>
+                    <div className="h-[300px] md:h-[600px] overflow-scroll ">
+                        <h2 className="font-bold px-4">Directing</h2>
+                            <Credits id={id} category="Directing" />
+                        <h2 className="font-bold px-4">Actor</h2>
+                            <Credits id={id} category="Acting" />
+                    </div>
+                    
                 </div>
 
-                <div className="w-full md:w-3/4 p-10">
+                <div id="detail" className="w-full md:w-3/4 p-10">
                     <h1><b>Synopsis</b></h1>
                     <p className="w-full md:w-2/3 p-2">{data.overview}</p>
                     <h1><b>Genres</b></h1>
@@ -76,7 +88,7 @@ export default async function Page({ params } : { params: Promise<{ id: string }
                     <div className={styles.mappingItem}>
                         {
                             data.production_companies.map((item, i) => {
-                                //console.log('url: ',item.logo_path)
+                                
                                 return <p key={i} className="w-max p-2 rounded bg-slate-700">{item.name} ({item.origin_country})</p>
 
                             })
@@ -86,7 +98,7 @@ export default async function Page({ params } : { params: Promise<{ id: string }
                     <div className={styles.mappingItem}>
                         {
                             data.production_countries.map((item, i) => {
-                                //console.log('url: ',item.logo_path)
+                                
                                 return <p key={i} className="w-max p-2 rounded bg-slate-700">{item.iso_3166_1}</p>
 
                             })
@@ -98,10 +110,15 @@ export default async function Page({ params } : { params: Promise<{ id: string }
                         <Link className={styles.linkItem} href={data.homepage}><p>Official</p></Link>
                         <Link className={styles.linkItem} href={`https://www.imdb.com/title/${data.imdb_id}`}><p>IMDB</p></Link>
                     </div>
-                    <h1><b>Related Videos</b></h1>
+                    <h1 id="video"><b>Related Videos</b></h1>
                     <Videos id={id} />
+                    <h1 id="provider"><b>Providers</b></h1>
+                    <div className="min-h-max bg-black p-4">
+                        <Provider providers={providers} regions={regions} />
+                    </div>
                 </div>
             </div>
+
 
 
         </div>

@@ -81,3 +81,35 @@ type spoken_language = {
     iso_639_1: string,
     name: string
 }
+
+
+export type WatchProviders = {
+    [countryCode: string]: {
+      link: string;
+      flatrate?: Provider[];
+      buy?: Provider[];
+      rent?: Provider[];
+    };
+  }
+  
+  export type Provider = {
+    logo_path: string;
+    provider_id: number;
+    provider_name: string;
+    display_priority: number;
+  }
+
+  export type Credit = {
+    adult: boolean,
+    gender: number,
+    id: number,
+    known_for_department: string,
+    name: string,
+    original_name: string,
+    popularity: number,
+    profile_path: string,
+    cast_id: number,
+    character: string,
+    credit_id: string,
+    order: number
+  }

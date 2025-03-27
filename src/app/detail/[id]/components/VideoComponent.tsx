@@ -16,7 +16,7 @@ export default async function Videos({ id }: { id: string }) {
                     videos.map((item: Video ,i) => {
                         if (item.official === true)
                             return <div className="w-max p-2" key={i}>
-                                <iframe className={styles.videoItem} src={`https://www.youtube.com/embed/${item.key}?si=Fqg2zvD0c0vvxgvF`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                                <iframe className={styles.videoItem} src={`https://www.youtube-nocookie.com/embed/${item.key}?si=Fqg2zvD0c0vvxgvF`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                                 
                             </div>
                     })
