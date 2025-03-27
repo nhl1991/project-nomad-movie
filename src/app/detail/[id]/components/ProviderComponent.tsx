@@ -38,7 +38,7 @@ export default function Provider({ providers, regions }: {
 
                 {
                     providers[`${region}`] && providers[`${region}`].flatrate != null ?
-                        <div className="h-1/3">
+                        <div className="h-max">
                             <ProviderText>Streaming</ProviderText>
                             <ProviderContainer>
                                 {
@@ -51,7 +51,7 @@ export default function Provider({ providers, regions }: {
                 }
                 {
                     providers[`${region}`] && providers[`${region}`].buy ?
-                        <div className="h-1/3">
+                        <div className="h-max">
                             <ProviderText>Buy</ProviderText>
                             <ProviderContainer>
                                 {
@@ -64,7 +64,7 @@ export default function Provider({ providers, regions }: {
                 }
                 {
                     providers[`${region}`] && providers[`${region}`].rent ?
-                        <div className="h-1/3">
+                        <div className="h-max">
                             <ProviderText>Rent</ProviderText>
                             <ProviderContainer>
                                 {
