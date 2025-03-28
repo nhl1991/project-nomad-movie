@@ -27,7 +27,7 @@
 
 
 .mappingItem {
-    @apply flex flex-row gap-1 md:p-2 p-1 md:text-base text-[8px];
+    @apply flex flex-row gap-1 flex-wrap py-4 px-2 md:text-base text-[8px];
   }
 
   .videoItem {

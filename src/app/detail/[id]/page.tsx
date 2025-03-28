@@ -89,7 +89,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                         {
                             data.production_companies.map((item, i) => {
                                 
-                                return <p key={i} className="w-max p-2 rounded bg-slate-700">{item.name} ({item.origin_country})</p>
+                                return <p key={i} className="min-w-max p-2 rounded bg-slate-700 text-[6px] md:text-base">{item.name} ({item.origin_country})</p>
 
                             })
                         }
@@ -99,7 +99,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                         {
                             data.production_countries.map((item, i) => {
                                 
-                                return <p key={i} className="w-max p-2 rounded bg-slate-700">{item.iso_3166_1}</p>
+                                return <p key={i} className="w-max py-1 px-2 rounded bg-slate-700">{item.iso_3166_1}</p>
 
                             })
                         }
