@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,11 +27,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen bg-black`}
       >
-
-        {children}
-        <footer className="w-full h-1/12 bg-black">
-
-          <p className="w-full text-center text-white p-4">All the resources belong to &copy;https://nomad-movies.nomadcoders.workers.dev/</p>
+        <main className="w-screen min-h-screen">{children}</main>
+        <footer className="w-full h-1/12">
+          <p className="w-full text-center p-4">
+            All the resources belong to
+            &copy;https://nomad-movies.nomadcoders.workers.dev/
+          </p>
         </footer>
       </body>
     </html>
