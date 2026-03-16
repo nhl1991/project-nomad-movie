@@ -1,10 +1,7 @@
-
-
 export default function Loading() {
-
-    return (
-        <div className="w-full min-h-screen flex items-center justify-center ">
-            <svg
+  return (
+    <div className="w-full min-h-screen flex items-center justify-center ">
+      <svg
         fill="hsl(228, 97%, 42%)"
         viewBox="0 0 24 24"
         className="w-24 h-24 animate-spin"
@@ -24,6 +21,6 @@ export default function Loading() {
           />
         </path>
       </svg>
-        </div>
-    )
+    </div>
+  );
 }
