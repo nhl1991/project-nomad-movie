@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function MovieItem({ item }: { item: Movie }) {
-  if (item.id === undefined) console.log(item.title + " has no id");
+    
   return (
     <>
       <Link href={`/detail/${item.id}`} className="" rel="">
