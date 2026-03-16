@@ -1,14 +1,26 @@
 
 
 export async function getMovie() {
+  try {
+    const res = await fetch("https://nomad-movies.nomadcoders.workers.dev/movies", {
+      method: "GET",
+      cache: "no-store",
+    });
 
-    const res = await fetch('https://nomad-movies.nomadcoders.workers.dev/movies', {
-        method: 'get'
-    })
+    if (!res.ok) {
+      throw new Error(`Failed to fetch movies: ${res.status} ${res.statusText}`);
+    }
 
-    const json = await res.json()
+    const json = await res.json();
+    // if (!Array.isArray(json)) {
+    //   throw new Error("Movie API did not return an array");
+    // }
 
     return json;
+  } catch (error) {
+    console.error("getMovie error:", error);
+    return [];
+  }
 }
 
 export async function getMovieById(id: string) {

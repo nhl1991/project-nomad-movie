@@ -37,3 +37,8 @@ body {
 .list-item {
   @apply p-2
 }
+
+
+.nav-link {
+  @apply px-3 py-1.5 font-bold border-b-2 border-transparent hover:border-cyan-700 transition-colors duration-200
+}
