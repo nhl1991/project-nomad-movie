@@ -56,7 +56,7 @@ export default function Provider({ providers, regions }: {
                             <ProviderContainer>
                                 {
                                     providers[`${region}`].buy?.map((item, i) => {
-                                        return <ProviderItem key={i} item={item} image={item.logo_path.split('/')[6]} />
+                                        return <ProviderItem key={i} item={item} image={item.logo_path} />
                                     })
                                 }
                             </ProviderContainer>
@@ -69,7 +69,7 @@ export default function Provider({ providers, regions }: {
                             <ProviderContainer>
                                 {
                                     providers[`${region}`].rent?.map((item, i) => {
-                                        return <ProviderItem key={i} item={item} image={item.logo_path.split('/')[6]} />
+                                        return <ProviderItem key={i} item={item} image={item.logo_path} />
                                     })
                                 }
                             </ProviderContainer>

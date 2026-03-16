@@ -104,7 +104,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                             })
                         }
                     </div>
-                    <h1><b>Releted Sites</b></h1>
+                    <h1><b>Related Sites</b></h1>
 
                     <div className={styles.mappingItem}>
                         <Link className={styles.linkItem} href={data.homepage}><p>Official</p></Link>

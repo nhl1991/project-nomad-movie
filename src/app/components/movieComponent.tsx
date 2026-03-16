@@ -1,13 +1,11 @@
-"use client";
 import { Movie } from "../lib/types";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function MovieItem({ item }: { item: Movie }) {
-  if (item.id === undefined) console.log(item.title + " has no id");
   return (
     <>
-      <Link href={`/detail/${item.id}`} className="" rel="">
+      <Link href={`/detail/${item.id}`}>
         <article className="w-full flex flex-col items-center justify-center transition-colors duration-200">
           <div className="p-4 ">
             <figure className="w-48 shadow-md rounded-xl aspect-[3/4] p-1 relative overflow-hidden  hover:rounded-xl transition-all duration-300">

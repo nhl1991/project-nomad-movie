@@ -13,10 +13,6 @@ async function getMovie() {
     }
 
     const json = await res.json();
-    console.log(json)
-    // if (!Array.isArray(json)) {
-    //   throw new Error("Movie API did not return an array");
-    // }
 
     return json;
   } catch (error) {
