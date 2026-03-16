@@ -40,5 +40,5 @@ body {
 
 
 .nav-link {
-  @apply px-3 py-1.5 rounded-xl bg-indigo-700 text-white hover:bg-indigo-600 transition-colors duration-200
+  @apply px-3 py-1.5 font-bold border-b-2 border-transparent hover:border-cyan-700 transition-colors duration-200
 }

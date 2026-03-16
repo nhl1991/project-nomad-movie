@@ -27,6 +27,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen bg-black`}
       >
+        <header>
+          <h1 className="text-6xl font-extrabold text-blue-900 px-12">NOMAD MOVIES</h1>
+        </header>
         <main className="w-screen min-h-screen">{children}</main>
         <footer className="w-full h-1/12">
           <p className="w-full text-center p-4">
